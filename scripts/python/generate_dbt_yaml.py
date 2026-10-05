@@ -183,8 +183,8 @@ def parse_cli_arguments() -> tuple[Path, str, str, str, str]:
 
 
 def sentinel_to_bool(text: str) -> bool:
-    """Convert sentinel strings to boolean"""
-    if text == "Yes":
+    """Convert sentinel strings to boolean (the CDM CSVs have used both Yes/No and TRUE/FALSE)"""
+    if text.lower() in {"yes", "true"}:
         return True
     else:
         return False
